@@ -2,18 +2,6 @@
 
 A complete full-stack e-commerce application built with React, Node.js, Express, and MongoDB. Features include product management, shopping cart, checkout with payment simulation, order tracking, admin dashboard, and multi-currency support.
 
----
-
-## 📸 Screenshots
-
-### Home Page
-![Home](https://via.placeholder.com/800x400?text=Home+Page)
-
-### Admin Dashboard
-![Admin](https://via.placeholder.com/800x400?text=Admin+Dashboard)
-
----
-
 ## ✨ Features
 
 ### 👤 Customer Features

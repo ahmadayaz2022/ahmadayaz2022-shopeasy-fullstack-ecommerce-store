@@ -1,36 +1,3 @@
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-// import Home from "./pages/Home";
-// import ProductDetail from "./pages/ProductDetail";
-// import Cart from "./pages/Cart";
-// import Login from "./pages/LoginPage";
-// import Register from "./pages/RegisterPage";
-// import AdminDashboard from "./pages/Admin/AdminDashboard";
-
-// import Navbar from "./components/Navbar";
-// import Footer from "./components/Footer";
-
-// function App() {
-//   return (
-//     <BrowserRouter>
-//       <Navbar />
-
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-//         <Route path="/product/:id" element={<ProductDetail />} />
-//         <Route path="/cart" element={<Cart />} />
-//         <Route path="/login" element={<Login />} />
-//         <Route path="/register" element={<Register />} />
-//         <Route path="/admin" element={<AdminDashboard />} />
-//       </Routes>
-
-//       <Footer />
-//     </BrowserRouter>
-//   );
-// }
-
-// export default App;
-
 import React from "react";
 import {
   BrowserRouter as Router,
