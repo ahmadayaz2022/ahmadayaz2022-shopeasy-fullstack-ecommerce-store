@@ -216,6 +216,7 @@ npx nodemon server.js
 
 Backend runs on: http://localhost:5000
 
+```
 
 Frontend Setup:
 # Open a new terminal
@@ -276,89 +277,62 @@ GET	/api/users/stats	Get user statistics	Admin
 GET	/api/users/:id	Get single user	Admin
 PUT	/api/users/:id	Update user	Admin
 DELETE	/api/users/:id	Delete user	Admin
-🎨 Features in Detail
+
+
+### 🎨 Features in Detail
 Homepage
 Hero banner with CTA buttons
-
 Category showcase with dynamic images
-
 Best sellers section
-
 Trending products
-
 Trust badges (Free Shipping, Secure Payment, Easy Returns)
-
 Newsletter subscription
-
 Responsive design for all screen sizes
 
 Product Management
 Multi-image upload with preview
-
 Dynamic categories and subcategories
-
 Size selection (S, M, L, XL, XXL)
 
 Stock management
-
 Bestseller marking
-
 Multi-currency pricing
-
 Image gallery with thumbnails
 
 Shopping Cart
 Add/remove items
-
 Quantity adjustment (+/-)
-
 Price calculation with tax and shipping
-
 Free shipping threshold indicator
-
 Promo code input (UI ready)
-
 Secure checkout badge
-
 Checkout Process
 3-step checkout (Shipping → Payment → Review)
-
 Progress indicator
-
 Multiple payment methods
-
 Simulated card payment with 90% success rate
-
 Order summary sidebar
-
 Form validation
 
 Order Management
 Order history with filtering
-
 Order status tracking (Pending → Processing → Shipped → Delivered)
-
 Progress bar for visual status
-
 Cancel order option (for pending orders)
-
 Detailed order view with items, shipping, payment info
 
 Admin Dashboard
 Stats cards (Products, Orders, Users, Revenue)
-
 Product management table
-
 User management with search
-
 Order management with status updates
 
 Category management
-
 Image upload management
 
 
-✨ Features
+
+### ✨ Features
 🔐 User Authentication (JWT)
 🛍️ Product Management (Admin)
 🛒 Add to Cart & Checkout
@@ -367,7 +341,10 @@ Image upload management
 📦 Order Management System
 🔎 Search & Filter Products
 📱 Responsive UI
-🎯 Future Enhancements
+
+
+### 🎯 Future Enhancements
+
 Product reviews and ratings system
 Real payment gateway integration (Stripe/PayPal)
 Email notifications for orders
@@ -384,13 +361,13 @@ Unit and integration testing
 Docker containerization
 CI/CD pipeline setup
 
-###👨‍💻 Author Details
+### 👨‍💻 Author Details
 Ahmad Ayaz
 GitHub: https://github.com/ahmadayaz2022
 Email: ahmadayaz2022@gmail.com
 
 
-###🙏 Acknowledgments
+### 🙏 Acknowledgments
 React
 Bootstrap
 MongoDB
