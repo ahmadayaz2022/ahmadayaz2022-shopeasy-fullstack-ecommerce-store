@@ -15,7 +15,7 @@ import { CartProvider } from "./context/CartContext";
 import Navbar from "./components/Layout/Navbar";
 import Footer from "./components/Layout/Footer";
 import HomePage from "./pages/HomePage";
-import ProductPage from "./pages/ProductPage";
+import ProductPage from "./pages/productpage";
 import ProductDetailPage from "./pages/ProductDetail";
 import CartPage from "./pages/Cart";
 import LoginPage from "./pages/LoginPage";
@@ -27,7 +27,7 @@ import AdminProducts from "./pages/Admin/AdminProducts";
 import AdminOrders from "./pages/Admin/AdminOrders";
 import AdminAddProduct from "./pages/Admin/AdminAddProduct";
 import AdminEditProduct from "./pages/Admin/AdminEditProduct";
-import PrivateRoute from "./components/privateRouts";
+import PrivateRoute from "./components/PrivateRouts";
 import AdminRoute from "./components/Admin/AdminRoute";
 
 import AboutPage from "./pages/AboutPage";
