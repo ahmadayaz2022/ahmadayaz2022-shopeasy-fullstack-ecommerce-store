@@ -1,378 +1,278 @@
-# ShopEasy - Full Stack E-Commerce Application
+# ShopEasy
 
-A complete full-stack e-commerce application built with React, Node.js, Express, and MongoDB. Features include product management, shopping cart, checkout with payment simulation, order tracking, admin dashboard, and multi-currency support.
-
-## 🖼️ Screenshot
-![Screenshots](home1.png)
-![Screenshots](home2.png)
-![Screenshots](home3.png)
-![Screenshots](footer.png)
-![Screenshots](loginpage.png)
-![Screenshots](registerpage.png)
+ShopEasy is a professional, full-stack e-commerce application built with React, Node.js, Express, and MongoDB. It delivers a polished shopping experience for customers and a full admin dashboard for store management.
 
 ---
 
+## What This Project Offers
 
-## ✨ Features
+- End-to-end shopping experience for customers
+- Admin control panel for products, categories, users, and orders
+- Secure authentication with role-based access
+- Cloud-ready configuration for MongoDB Atlas
+- Responsive design optimized for mobile and desktop
 
-### 👤 Customer Features
-- 🏠 Modern, responsive homepage with hero section and category showcase
-- 🛍️ Browse products by category, subcategory with search and filter
-- 📱 Fully responsive design (mobile, tablet, desktop)
-- 🔍 Product search with real-time filtering
-- 📄 Product detail page with image gallery and size selection
-- 🛒 Shopping cart with quantity controls (add, remove, update quantity)
-- 💳 Multi-step checkout process (Shipping → Payment → Review)
-- 💰 Multiple payment methods (Cash on Delivery, Credit Card, Debit Card, PayPal)
-- 📦 Order history with status tracking and progress bar
-- 📊 Order filtering (All, Pending, Processing, Shipped, Delivered, Cancelled)
-- 🌍 Multi-currency support (USD, PKR, EUR, GBP, AED, SAR, INR)
-- ❤️ Wishlist functionality (UI ready)
-- 📧 Newsletter subscription
-- 👤 User registration and login with JWT authentication
-- 📱 Hamburger menu with offcanvas navigation
-- 🎨 Clean, modern UI with smooth animations
+---
 
-### 🔧 Admin Features
-- 📊 Dashboard with real-time stats (Products, Orders, Users, Revenue)
-- ➕ Add products with multiple image upload and preview
-- ✏️ Edit products with image management (add/remove/restore images)
-- 🗑️ Delete products with confirmation modal
-- 📋 Dynamic category and subcategory management
-- ➕ Add new categories and subcategories on the fly
-- 👥 User management (View all users, edit roles, delete users)
-- 📦 Order management (View all orders, update order status)
-- 📊 User statistics (Total, Admin, Customer, New This Month)
-- 🖼️ Image upload with preview and drag-drop support
-- 📱 Floating action button for quick product addition on mobile
-- 🎨 Admin-specific UI with stats cards and data tables
+## Highlights
 
-### 🛡️ Security & Technical
-- JWT token-based authentication
+### Customer Experience
+- Modern, responsive storefront
+- Product browsing by category and search
+- Product detail pages with image gallery
+- Shopping cart with item quantity control
+- Checkout workflow with order review
+- Order history and status tracking
+- Multi-currency pricing display
+
+### Admin Experience
+- Dashboard with key business metrics
+- Product CRUD with image upload support
+- Category and subcategory management
+- Order status updates and workflow control
+- User administration and role management
+
+### Technical Strengths
+- JWT authentication and route protection
 - Password hashing with bcryptjs
-- Protected API routes with middleware
-- Role-based access control (Admin/Customer)
-- Form validation on frontend and backend
-- Error handling with toast notifications
-- Loading states and spinners
-- Environment variable configuration
+- Structured controllers and middleware
+- Cloud-compatible image upload flow
+- Environment-driven configuration
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| React | 18.x | UI Library |
-| React Router | 6.x | Client-side routing |
-| React Bootstrap | 2.x | UI Components |
-| Bootstrap | 5.x | CSS Framework |
-| Axios | 1.x | HTTP Client |
-| React Icons | 4.x | Icon Library |
-| React Toastify | 9.x | Toast Notifications |
+- React
+- React Router
+- React Bootstrap
+- Bootstrap
+- Axios
+- React Icons
+- React Toastify
 
 ### Backend
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| Node.js | 16+ | Runtime Environment |
-| Express.js | 4.x | Web Framework |
-| MongoDB | 6.x | Database |
-| Mongoose | 7.x | ODM for MongoDB |
-| JWT | 9.x | Authentication |
-| bcryptjs | 2.x | Password Hashing |
-| Multer | 1.x | File Uploads |
-| CORS | 2.x | Cross-Origin Requests |
-| dotenv | 16.x | Environment Variables |
+- Node.js
+- Express
+- MongoDB / Mongoose
+- JSON Web Tokens (JWT)
+- bcryptjs
+- Multer
+- CORS
+- dotenv
 
 ---
 
-## 📁 Project Structure
-ecommerce-app/
-├── backend/
-│ ├── config/
-│ │ └── db.js # Database connection
-│ ├── controllers/
-│ │ ├── authController.js # Authentication logic
-│ │ ├── cartController.js # Cart operations
-│ │ ├── categoryController.js # Category management
-│ │ ├── orderController.js # Order processing
-│ │ ├── productController.js # Product CRUD
-│ │ └── userController.js # User management
-│ ├── middleware/
-│ │ ├── authMiddleware.js # JWT verification
-│ │ ├── errorMiddleware.js # Error handling
-│ │ └── uploadMiddleware.js # File upload config
-│ ├── models/
-│ │ ├── Cart.js # Cart schema
-│ │ ├── Category.js # Category schema
-│ │ ├── Order.js # Order schema
-│ │ ├── Product.js # Product schema
-│ │ └── User.js # User schema
-│ ├── routes/
-│ │ ├── authRoutes.js # Auth endpoints
-│ │ ├── cartRoutes.js # Cart endpoints
-│ │ ├── categoryRoutes.js # Category endpoints
-│ │ ├── orderRoutes.js # Order endpoints
-│ │ ├── productRoutes.js # Product endpoints
-│ │ └── userRoutes.js # User endpoints
-│ ├── uploads/ # Uploaded images
-│ ├── createAdmin.js # Admin seeder script
-│ ├── seedCategories.js # Category seeder script
-│ ├── fixOrderIndex.js # Database fix script
-│ ├── server.js # Main server file
-│ ├── package.json
-│ └── .env
-│
-├── frontend/
-│ ├── public/
-│ │ └── index.html
-│ ├── src/
-│ │ ├── components/
-│ │ │ ├── Common/
-│ │ │ │ ├── AdminRoute.js # Admin route guard
-│ │ │ │ └── PrivateRoute.js # Auth route guard
-│ │ │ └── Layout/
-│ │ │ ├── Footer.js # Footer component
-│ │ │ └── Navbar.js # Navbar component
-│ │ ├── context/
-│ │ │ ├── AuthContext.js # Auth state management
-│ │ │ └── CartContext.js # Cart state management
-│ │ ├── pages/
-│ │ │ ├── Admin/
-│ │ │ │ ├── AdminAddProduct.js
-│ │ │ │ ├── AdminDashboard.js
-│ │ │ │ ├── AdminEditProduct.js
-│ │ │ │ ├── AdminOrders.js
-│ │ │ │ ├── AdminProducts.js
-│ │ │ │ └── AdminUsers.js
-│ │ │ ├── AboutPage.js
-│ │ │ ├── CartPage.js
-│ │ │ ├── CheckoutPage.js
-│ │ │ ├── ContactPage.js
-│ │ │ ├── HomePage.js
-│ │ │ ├── LoginPage.js
-│ │ │ ├── MissionVisionPage.js
-│ │ │ ├── OrderHistoryPage.js
-│ │ │ ├── ProductDetailPage.js
-│ │ │ ├── ProductPage.js
-│ │ │ ├── RegisterPage.js
-│ │ │ └── TeamPage.js
-│ │ ├── services/
-│ │ │ └── api.js # API service configuration
-│ │ ├── utils/
-│ │ │ └── currencyHelper.js # Currency formatting utility
-│ │ ├── App.js # Main app component
-│ │ ├── App.css # Global styles
-│ │ └── index.js # Entry point
-│ └── package.json
-│
-├── .gitignore
-└── README.md
-
-
-
----
-
-## 🚀 Installation and Setup
-
-### Prerequisites
-
-- **Node.js** (v16 or higher) - [Download](https://nodejs.org/)
-- **MongoDB** (Local or Atlas) - [Download](https://www.mongodb.com/try/download/community) or [Atlas](https://www.mongodb.com/cloud/atlas)
-- **npm** (comes with Node.js) or **yarn**
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/ecommerce-app.git
-cd ecommerce-app
-
-Backend Setup:
-# Navigate to backend
-cd backend
-
-# Install dependencies
-npm install
-
-# Create .env file
-cat > .env << 'EOF'
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/ecommerce
-JWT_SECRET=your_super_secret_jwt_key_here
-NODE_ENV=development
-EOF
-
-# Seed the admin user
-node createAdmin.js
-
-# Seed default categories
-node seedCategories.js
-
-# Start the backend server
-npm start
-# Or with nodemon for development
-npx nodemon server.js
-
-Backend runs on: http://localhost:5000
+## Project Structure
 
 ```
+ShopEasy/
+|-- backend/
+|   |-- config/db.js
+|   |-- controllers/authController.js
+|   |-- controllers/cartController.js
+|   |-- controllers/categoryController.js
+|   |-- controllers/orderController.js
+|   |-- controllers/productController.js
+|   |-- controllers/userController.js
+|   |-- middleware/authMiddleware.js
+|   |-- middleware/errorMiddleware.js
+|   |-- middleware/uploadMiddleware.js
+|   |-- models/Cart.js
+|   |-- models/Category.js
+|   |-- models/Order.js
+|   |-- models/Product.js
+|   |-- models/User.js
+|   |-- routes/authRoutes.js
+|   |-- routes/cartRoutes.js
+|   |-- routes/categoryRoutes.js
+|   |-- routes/orderRoutes.js
+|   |-- routes/productRoutes.js
+|   |-- routes/userRoutes.js
+|   |-- uploads/
+|   |-- createAdmin.js
+|   |-- seedCategories.js
+|   |-- fixOrderIndex.js
+|   |-- server.js
+|   |-- package.json
+|   |-- .env
+|-- frontend/
+|   |-- public/index.html
+|   |-- src/api/axios.js
+|   |-- src/assets/
+|   |-- src/components/Admin/
+|   |-- src/components/Layout/Footer.jsx
+|   |-- src/components/Layout/Navbar.jsx
+|   |-- src/components/BestSellers.jsx
+|   |-- src/components/CategorySection.jsx
+|   |-- src/components/Hero.jsx
+|   |-- src/components/LatestCollection.jsx
+|   |-- src/components/Newsletter.jsx
+|   |-- src/components/ProductCard.jsx
+|   |-- src/components/ProductItem.jsx
+|   |-- src/components/ProtectedRoute.jsx
+|   |-- src/components/PrivatRouts.jsx
+|   |-- src/config/constants.js
+|   |-- src/context/AuthContext.js
+|   |-- src/context/CartContext.js
+|   |-- src/context/StoreContext.jsx
+|   |-- src/hooks/useAuth.js
+|   |-- src/hooks/useCart.js
+|   |-- src/pages/Admin/AdminAddProduct.jsx
+|   |-- src/pages/Admin/AdminDashboard.jsx
+|   |-- src/pages/Admin/AdminEditProduct.jsx
+|   |-- src/pages/Admin/AdminOrders.jsx
+|   |-- src/pages/Admin/AdminProducts.jsx
+|   |-- src/pages/Admin/AdminUsers.jsx
+|   |-- src/pages/Admin/ProductList.jsx
+|   |-- src/pages/AboutPage.jsx
+|   |-- src/pages/Cart.jsx
+|   |-- src/pages/CheckoutPage.jsx
+|   |-- src/pages/ContactPage.jsx
+|   |-- src/pages/HomePage.jsx
+|   |-- src/pages/LoginPage.jsx
+|   |-- src/pages/OrderHistoryPage.jsx
+|   |-- src/pages/ProductDetail.jsx
+|   |-- src/pages/ProductPage.jsx
+|   |-- src/pages/RegisterPage.jsx
+|   |-- src/pages/productpage.jsx
+|   |-- src/routes/AppRoutes.jsx
+|   |-- src/utils/currencyHelper.js
+|   |-- src/App.css
+|   |-- src/App.js
+|   |-- src/index.js
+|   |-- package.json
+|-- .gitignore
+|-- README.md
+```
 
-Frontend Setup:
-# Open a new terminal
-# Navigate to frontend
-cd frontend
+---
 
-# Install dependencies
+## Setup Instructions
+
+### Prerequisites
+- Node.js 16+ installed
+- npm or yarn installed
+- MongoDB Atlas account or local MongoDB instance
+
+### Backend Setup
+
+```bash
+cd backend
 npm install
+```
 
-# Start the frontend development server
+Create a `.env` file in the `backend` folder with the following values:
+
+```env
+PORT=5000
+MONGO_URI=mongodb+srv://<USERNAME>:<PASSWORD>@<CLUSTER>.mongodb.net/ecommerce?retryWrites=true&w=majority
+JWT_SECRET=your_jwt_secret
+CLOUDINARY_CLOUD_NAME=your_cloudinary_name
+CLOUDINARY_API_KEY=your_cloudinary_key
+CLOUDINARY_API_SECRET=your_cloudinary_secret
+STRIPE_SECRET_KEY=your_stripe_secret
+```
+
+### Frontend Setup
+
+```bash
+cd frontend
+npm install
+```
+
+---
+
+## Run Locally
+
+### Start backend server
+
+```bash
+cd backend
 npm start
+```
 
-Frontend runs on: http://localhost:3000
+or for development mode:
 
-Access the Application
-Frontend: http://localhost:3000
+```bash
+cd backend
+npx nodemon server.js
+```
 
-API: http://localhost:5000
+### Start frontend server
 
-Test Customer Account
-Register a new account at /register
+```bash
+cd frontend
+npm start
+```
 
-📡 API Endpoints
-Authentication
-Method	Endpoint	Description	Access
-POST	/api/auth/register	Register new user	Public
-POST	/api/auth/login	Login user	Public
+Open the app at `http://localhost:3000` and the API at `http://localhost:5000`.
 
-Products
-Method	Endpoint	Description	Access
-GET	/api/products	Get all products	Public
-GET	/api/products/:id	Get single product	Public
-POST	/api/products	Add new product	Admin
-PUT	/api/products/:id	Update product	Admin
-DELETE	/api/products/:id	Delete product	Admin
+---
 
-Categories
-Method	Endpoint	Description	Access
-GET	/api/categories	Get all categories	Public
-POST	/api/categories	Add category	Admin
-POST	/api/categories/:id/subcategory	Add subcategory	Admin
+## API Summary
 
-Cart
-Method	Endpoint	Description	Access
-GET	/api/cart	Get user cart	Protected
-POST	/api/cart	Add item to cart	Protected
-DELETE	/api/cart/:id	Remove item from cart	Protected
-Orders
-Method	Endpoint	Description	Access
-POST	/api/orders	Create order	Protected
-GET	/api/orders/my	Get user orders	Protected
-GET	/api/orders	Get all orders	Admin
-PUT	/api/orders/:id	Update order status	Admin
-Users
-Method	Endpoint	Description	Access
-GET	/api/users	Get all users	Admin
-GET	/api/users/stats	Get user statistics	Admin
-GET	/api/users/:id	Get single user	Admin
-PUT	/api/users/:id	Update user	Admin
-DELETE	/api/users/:id	Delete user	Admin
+### Authentication
+- `POST /api/auth/register` — Register a new user
+- `POST /api/auth/login` — Sign in and receive JWT
 
+### Products
+- `GET /api/products` — Get all products
+- `GET /api/products/:id` — Get product details
+- `POST /api/products` — Create product (admin only)
+- `PUT /api/products/:id` — Update product (admin only)
+- `DELETE /api/products/:id` — Delete product (admin only)
 
-### 🎨 Features in Detail
-Homepage
-Hero banner with CTA buttons
-Category showcase with dynamic images
-Best sellers section
-Trending products
-Trust badges (Free Shipping, Secure Payment, Easy Returns)
-Newsletter subscription
-Responsive design for all screen sizes
+### Categories
+- `GET /api/categories` — Get categories
+- `POST /api/categories` — Add category (admin only)
+- `POST /api/categories/:id/subcategory` — Add subcategory (admin only)
 
-Product Management
-Multi-image upload with preview
-Dynamic categories and subcategories
-Size selection (S, M, L, XL, XXL)
+### Cart
+- `GET /api/cart` — Get user cart
+- `POST /api/cart` — Add item to cart
+- `DELETE /api/cart/:id` — Remove item from cart
 
-Stock management
-Bestseller marking
-Multi-currency pricing
-Image gallery with thumbnails
+### Orders
+- `POST /api/orders` — Create order
+- `GET /api/orders/my` — Get current user orders
+- `GET /api/orders` — Get all orders (admin only)
+- `PUT /api/orders/:id` — Update order status (admin only)
 
-Shopping Cart
-Add/remove items
-Quantity adjustment (+/-)
-Price calculation with tax and shipping
-Free shipping threshold indicator
-Promo code input (UI ready)
-Secure checkout badge
-Checkout Process
-3-step checkout (Shipping → Payment → Review)
-Progress indicator
-Multiple payment methods
-Simulated card payment with 90% success rate
-Order summary sidebar
-Form validation
+### Users
+- `GET /api/users` — Get all users (admin only)
+- `GET /api/users/stats` — Get user statistics (admin only)
+- `GET /api/users/:id` — Get user details (admin only)
+- `PUT /api/users/:id` — Update user (admin only)
+- `DELETE /api/users/:id` — Delete user (admin only)
 
-Order Management
-Order history with filtering
-Order status tracking (Pending → Processing → Shipped → Delivered)
-Progress bar for visual status
-Cancel order option (for pending orders)
-Detailed order view with items, shipping, payment info
+---
 
-Admin Dashboard
-Stats cards (Products, Orders, Users, Revenue)
-Product management table
-User management with search
-Order management with status updates
+## Future Improvements
 
-Category management
-Image upload management
+- Reviews and ratings system
+- Real payment gateway integration (Stripe, PayPal)
+- Email notifications and alerts
+- PDF invoice generation
+- Advanced analytics and reports
+- Social login (Google, Facebook)
+- Wishlist and product comparison
+- Improved performance with caching and SSR
+- Docker containerization
 
+---
 
+## Author
+**Ahmad Ayaz**
 
-### ✨ Features
-🔐 User Authentication (JWT)
-🛍️ Product Management (Admin)
-🛒 Add to Cart & Checkout
-💳 Stripe Payment Integration
-☁️ Image Upload with Cloudinary
-📦 Order Management System
-🔎 Search & Filter Products
-📱 Responsive UI
+- GitHub: https://github.com/ahmadayaz2022
+- Email: ahmadayaz2022@gmail.com
 
+---
 
-### 🎯 Future Enhancements
+## Notes
 
-Product reviews and ratings system
-Real payment gateway integration (Stripe/PayPal)
-Email notifications for orders
-PDF invoice generation
-Advanced analytics dashboard
-Product comparison feature
-Wishlist functionality
-Social media login (Google/Facebook)
-Live chat support
-Multi-language support (i18n)
-PWA support for mobile app-like experience
-Redis caching for performance
-Unit and integration testing
-Docker containerization
-CI/CD pipeline setup
-
-### 👨‍💻 Author Details
-Ahmad Ayaz
-GitHub: https://github.com/ahmadayaz2022
-Email: ahmadayaz2022@gmail.com
-
-
-### 🙏 Acknowledgments
-React
-Bootstrap
-MongoDB
-Express.js
-Node.js
-Unsplash (for placeholder images)
-React Icons
-React Toastify
+- Keep `.env` files secret and never commit them to GitHub.
+- Use MongoDB Atlas for cloud deployment or a local MongoDB instance for development.
+- Run `backend/createAdmin.js` to seed an admin user if needed.
