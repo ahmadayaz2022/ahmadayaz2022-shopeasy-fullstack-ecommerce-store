@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Form, InputGroup, Button, Badge } from 'react-bootstrap';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { Link, useSearchParams } from 'react-router-dom';
 import { productService } from '../api/axios';
 import { useAuth } from '../context/AuthContext';
 import { formatPrice } from '../utils/currencyHelper';
-import { FaSearch, FaStar, FaHeart, FaTimes, FaPlus, FaFilter, FaSortAmountDown } from 'react-icons/fa';
+import { FaSearch, FaStar, FaHeart, FaTimes, FaPlus } from 'react-icons/fa';
 import axios from 'axios';
 
 const API_URL = 'http://localhost:5000/api';
@@ -19,7 +19,6 @@ const ProductPage = () => {
   const [sortBy, setSortBy] = useState('priority');
   const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
-  const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [searchParams] = useSearchParams();
   const { user, isAdmin } = useAuth();
 
@@ -31,7 +30,6 @@ const ProductPage = () => {
 
   useEffect(() => {
     const categoryParam = searchParams.get('category');
-    const bestsellerParam = searchParams.get('bestseller');
     
     if (categoryParam) setCategory(categoryParam);
     
@@ -39,48 +37,7 @@ const ProductPage = () => {
     fetchProducts();
   }, [searchParams]);
 
-  useEffect(() => {
-    filterAndSortProducts();
-  }, [products, searchTerm, category, subCategory, sortBy]);
-
-  useEffect(() => {
-    if (category !== 'all') {
-      const cat = categories.find(c => c.name === category);
-      setSubCategories(cat?.subCategories || []);
-    } else {
-      setSubCategories([]);
-    }
-    setSubCategory('all');
-  }, [category, categories]);
-
-  const fetchCategories = async () => {
-    try {
-      const { data } = await axios.get(`${API_URL}/categories`);
-      setCategories(data);
-    } catch (error) {
-      console.error('Error fetching categories:', error);
-    }
-  };
-
-  const fetchProducts = async () => {
-    try {
-      const { data } = await productService.getAll();
-      
-      const sortedProducts = data.sort((a, b) => {
-        if (a.bestseller && !b.bestseller) return -1;
-        if (!a.bestseller && b.bestseller) return 1;
-        return new Date(b.createdAt) - new Date(a.createdAt);
-      });
-      
-      setProducts(sortedProducts);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const filterAndSortProducts = () => {
+  const filterAndSortProducts = useCallback(() => {
     let filtered = [...products];
 
     if (category !== 'all') {
@@ -124,6 +81,47 @@ const ProductPage = () => {
     }
 
     setFilteredProducts(filtered);
+  }, [products, searchTerm, category, subCategory, sortBy]);
+
+  useEffect(() => {
+    filterAndSortProducts();
+  }, [filterAndSortProducts]);
+
+  useEffect(() => {
+    if (category !== 'all') {
+      const cat = categories.find(c => c.name === category);
+      setSubCategories(cat?.subCategories || []);
+    } else {
+      setSubCategories([]);
+    }
+    setSubCategory('all');
+  }, [category, categories]);
+
+  const fetchCategories = async () => {
+    try {
+      const { data } = await axios.get(`${API_URL}/categories`);
+      setCategories(data);
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+    }
+  };
+
+  const fetchProducts = async () => {
+    try {
+      const { data } = await productService.getAll();
+      
+      const sortedProducts = data.sort((a, b) => {
+        if (a.bestseller && !b.bestseller) return -1;
+        if (!a.bestseller && b.bestseller) return 1;
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      });
+      
+      setProducts(sortedProducts);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const clearFilters = () => {
