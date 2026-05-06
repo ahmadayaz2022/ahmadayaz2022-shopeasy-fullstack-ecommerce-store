@@ -27,7 +27,7 @@ import AdminProducts from "./pages/Admin/AdminProducts";
 import AdminOrders from "./pages/Admin/AdminOrders";
 import AdminAddProduct from "./pages/Admin/AdminAddProduct";
 import AdminEditProduct from "./pages/Admin/AdminEditProduct";
-import PrivateRoute from "./components/PrivateRouts";
+import PrivateRoute from "./components/privateRouts";
 import AdminRoute from "./components/Admin/AdminRoute";
 
 import AboutPage from "./pages/AboutPage";
