@@ -271,8 +271,3 @@ Open the app at `http://localhost:3000` and the API at `http://localhost:5000`.
 
 ---
 
-## Notes
-
-- Keep `.env` files secret and never commit them to GitHub.
-- Use MongoDB Atlas for cloud deployment or a local MongoDB instance for development.
-- Run `backend/createAdmin.js` to seed an admin user if needed.
